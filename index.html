@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <!-- bootstrap links -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <!-- bootstrap icon-Link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- bootstrap graph-Link -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- google font-link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+    <title>Weather Forecast App</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <div class="row" style="margin-bottom: 50px;">
+                <div class="col-sm-3">
+                    <i class="bi bi-plus-square-fill"></i>
+                </div>
+                <div class="col-sm-4">
+                    <i class="bi bi-three-dots"></i>
+                </div>
+                <div class="col-sm-5">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>°C</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-check form-switch">                    
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <p>°F</p>
+                    </div>
+                </div>                 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-2">
+                    <i class="bi bi-geo-alt-fill"></i>
+                        </div>
+                        <div class="col-sm-10" style="text-align: initial;">
+                            <p>Newyork,USA</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6" style="text-align: end;">
+                            <i class="bi bi-sunrise"></i>
+                        </div>
+                        <div class="col-sm-6" style="text-align: initial;">
+                            <p>07:19am</p>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <p>Today28,September</p>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6" style="text-align: end;">
+                            <i class="bi bi-sunset"></i>
+                        </div>
+                        <div class="col-sm-6" style="text-align: initial;">
+                            <p>19:32</p>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+            <div class="row" >
+                <div class="col-sm-3" style="margin-top: 25px;text-align:center;">
+                    <i class="bi bi-caret-left-fill"></i>
+                </div>
+                <div class="col-sm-5" style="text-align:center;font-weight: 600;">
+                    <h1  style="font-weight: 600;margin-top: 16px;">27°C</h1>
+                </div>
+                <div class="col-sm-4" style="margin-top: 25px;text-align:center;">
+                    <i class="bi bi-caret-right-fill"></i>
+                </div>
+            </div>
+            <div class="row" style="text-align: center;">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-5">
+                        <i class="bi bi-sun"></i>
+                        <p>Sunny</p>
+                </div>
+                <div class="col-sm-4"></div>                             
+            </div>
+            <div>
+                <img src="./images/bg2.png" alt="buildingbg" style="image-orientation: initial;height: 900px;">
+            </div>
+        </div>
+       
+
+        <div id="page-content-wrapper">
+            <div class="page-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h1 style="font-weight: 600;">Welcome back Isabella!</h1>
+                            </div> 
+                            <div class="col-sm-6">
+                              
+                            </div>                              
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h3 style="font-weight: 600;margin-bottom: 0px;margin-top: 10px;">Checkout today's weather information</h3>
+                            </div>    
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                    </div>
+                                    <div class="col-sm-4">
+                                    </div>
+                                    <div class="col-sm-4" style="text-align: end;font-size: 40px;">
+                                        <i class="bi bi-three-dots"></i>
+                                        <i class="bi bi-person-square"></i>
+                                        </div>
+                                </div>
+                            </div>                                                         
+                        </div>                    
+                            <!-- weather widger -->
+                        <div class="weather-widget">
+                            <div class="row weather-widget-item">
+                                <div class="col-sm-4">upcoming hours</div>
+                                <div class="col-sm-4">
+                                    <button type="menu" class="btn btn-secondary">Rain precipitation <i
+                                            class="bi bi-caret-down"></i></button>
+                                </div>
+                                <div class="col-sm-4">
+                                    <button type="menu" class="btn btn-secondary">Next days
+                                        <i class="bi bi-caret-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Carousel inner -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="row carousel-item-data">
+                                        <div class="col-sm-2 flex-coloumn">
+                                            <p class="t-time"><strong>Now</strong></p>
+                                            <i class="bi bi-brightness-high"></i>
+                                            <p class="small"><strong>27°C</strong></p>
+                                        </div>
+                                        <div class="col-sm-2 flex-coloumn">
+                                            <p class="t-time"><strong>11</strong></p>
+                                            <i class="bi bi-brightness-high"></i>
+                                            <p class="small"><strong>28°C</strong></p>
+                                        </div>
+                                        <div class="col-sm-2 flex-coloumn">
+                                            <p class="t-time"><strong>12</strong></p>
+                                            <i class="bi bi-cloudy"></i>
+                                            <p class="small"><strong>28°C</strong></p>
+                                        </div>
+                                        <div class="col-sm-2 flex-coloumn">
+                                            <p class="t-time"><strong>13</strong></p>
+                                            <i class="bi bi-cloudy"></i>
+                                            <p class="small"><strong>29°C</strong></p>
+                                        </div>
+                                        <div class="col-sm-2 flex-coloumn">
+                                            <p class="t-time"><strong>14</strong></p>
+                                            <i class="bi bi-brightness-high"></i>
+                                            <p class="small"><strong>30°C</strong></p>
+                                        </div>
+                                        <div class="col-sm-2 flex-coloumn">
+                                            <p class="t-time"><strong>15</strong></p>
+                                            <i class="bi bi-cloudy"></i>
+                                            <p class="small"><strong>29°C</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- graph -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div id="myPlot" style="min-width:auto;height: auto;position: relative;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- More details -->
+
+                        <div class="more-detail">
+                            <div style="padding: 20px;">
+                                <h3 style="font-weight: 600;">More details about today's weather</h3>
+                            </div>
+                            <div class="" style="display: flex;">
+                                <div class="row">
+                                    <!-- humidity -->
+                                    <div class="weatherProp" style="width: 300px;margin-right: 50px;">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <strong>Humidity</strong>
+                                            </div>
+                                            <div class="col-sm-6" style="text-align: center;">
+                                                <i class="bi bi-moisture"></i>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="text-align: center;">
+                                            <strong>82% Bad</strong>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <label for="Humidity-bad">Bad</label>
+                                                <meter id="Humidity-bad" value="1" min="0" max="3">2 out of 3</meter>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <label for="Humidity-normal">Normal</label>
+                                                <meter id="Humidity-normal" value="1" min="4" max="6">5 out of 6</meter>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <label for="Humidity-good">Good</label>
+                                                <meter id="Humidity-good" value="1" min="7" max="10">7 out of 10</meter>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!-- wind speed -->
+                                    <div class=" weatherProp" style="width: 400px;margin-right: 50px;">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <strong>Wind</strong>
+                                            </div>
+                                            <div class="col-sm-6" style="text-align: center;">
+                                                <i class="bi bi-wind"></i>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="text-align: center;">
+                                            <strong>8 km/hr</strong>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <label for="wind-poor">poor</label>
+                                                <meter id="wind-poor" value="5" min="0" max="5"></meter>
+                                                <label for="wind-poor">0-5</label>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label for="wind-bad">Bad</label>
+                                                <meter id="wind-bad" value="8" min="5" max="10"></meter>
+                                                <label for="wind-poor">5-10</label>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label for="wind-normal">Good</label>
+                                                <meter id="wind-normal" value="10" min="10" max="20"></meter>
+                                                <label for="wind-poor">10-20</label>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label for="wind-excellent">Excellent</label>
+                                                <meter id="wind-excellent" value="20" min="20" max="40"></meter>
+                                                <label for="wind-poor">20-40</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!-- precipitation -->
+                                    <div class="weatherProp" style="width: 400px;margin-right: 50px;">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <strong>Precipitation</strong>
+                                            </div>
+                                            <div class="col-sm-6" style="text-align: center;">
+                                                <i class="bi bi-cloud-rain-heavy-fill"></i>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="text-align: center;">
+                                            <strong>1.4 cm</strong>
+                                        </div>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="row">
+                                                        <div class="col-sm-2">
+                                                            <label for="precipitation-nil">0</label>
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                            <label for="precipitation-low">2</label>
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                            <label for="precipitation-normal">4</label>
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                            <label for="precipitation-high">6</label>
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                            <label for="precipitation-higher">8</label>
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                            <label for="precipitation-highest">10</label>
+                                                        </div>  
+                                                    </div>                                                                                            
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <div class="row">
+                                            <meter id="precipitation-range" value="1.4" min="0" max="10"></meter>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="" style="display: flex;">
+                            <div class="row">
+                                <!-- UV Index -->
+                                <div class="weatherProp" style="width: 300px;margin-right: 50px;">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <strong>Uv Index</strong>
+                                        </div>
+                                        <div class="col-sm-6" style="text-align: center;">
+                                            <i class="bi bi-brightness-high-fill"></i>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="text-align: center;">
+                                        <strong>4 medium</strong>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="row">
+                                                <div class="col-sm-2">
+                                                    <label for="uv-poor">0</label>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <label for="uv-bad">2</label>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <label for="uv-normal">5</label>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <label for="uv-good">7</label>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <label for="uv-ver-good">9</label>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <label for="uv-excellent">11+</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="row">
+                                                <meter id="uv-bad" value="4" min="0" max="11"></meter>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!-- Feels like -->
+                                <div class=" weatherProp" style="width:400px;margin-right: 50px;">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <strong>Feels like</strong>
+                                        </div>
+                                        <div class="col-sm-6" style="text-align: center;">
+                                            <i class="bi bi-thermometer-half"></i>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="text-align: center;">
+                                        <strong>30°</strong>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <label for="feels-like-poor">0</label>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label for="feels-like-bad">25</label>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label for="feels-like-normal">50</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="row">
+                                                <meter id="feels-like-range" value="30" min="0" max="50"></meter>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- chance of rain -->
+                            <div class="weatherProp" style="width:600px;">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <strong>Chance of rain</strong>
+                                    </div>
+                                    <div class="col-sm-6" style="text-align: center;">
+                                        <i class="bi bi-umbrella-fill"></i>
+                                    </div>
+                                </div>
+                                <div style="text-align: center;">
+                                    <strong>42%</strong>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                <label for="chance-of-rain-nil">0%</label>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label for="chance-of-rain-normal">25%</label>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label for="chance-of-rain-high">50%</label>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label for="feels-like-heavy">75%</label>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label for="feels-like-flood">100%</label>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <meter id="feels-like-range" value="42" min="0" max="100"></meter>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

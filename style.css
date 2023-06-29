@@ -1,0 +1,94 @@
+/* :root{
+    background-color: #5c9ce5;
+} */
+
+/* *{
+    margin-left:0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;    
+} */
+
+.bi-moisture, .bi-wind, .bi-cloud-rain-heavy-fill, .bi-brightness-high-fill, .bi-thermometer-half, .bi-umbrella-fill{
+    background-color: #5c9ce5;
+    font-size: 20px;
+    color: white;
+    border-radius: 10px;
+}
+
+.bi-plus-square-fill, .bi-toggle2-off{
+    font-size: 20px;
+}
+
+
+body{
+    background-color: #b5d8ff !important;
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+    justify-content: center;
+    min-height: 100px;
+    min-width: 100px;
+    padding: 50px;
+
+}
+
+img{
+    width: 100%
+}
+
+.wrapper{
+    display: flex;
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: #5c9ce5;    
+}
+
+.sidebar{
+    width: 30%;
+    height: fit-content;
+    padding: 20px;
+    background-color:#5c9ce5;
+    color: #ffffff;
+}
+
+#page-content-wrapper{
+    width: auto;
+    height: auto;
+    border-radius: 30px;
+    min-width: 250px;
+    padding: 20px;
+    background-color: #e4f1ff;
+}
+
+.weather-widget{
+    background-color: #ffffff;
+    border-radius:30px;
+    padding: 20px;
+}
+
+.carousel-inner {
+    padding: 20px;
+}
+
+.weather-widget-item{
+    width: auto;
+    text-align: center;
+}
+
+.more-detail{
+    padding: 20px;
+}
+
+/* .humidity, .wind, .precipitation{
+    background-color: #ffffff;
+    border-radius: 30px;
+    padding: 20px;
+} */
+
+.weatherProp{
+    background-color: #ffffff;
+    border-radius: 30px;
+    padding: 20px;
+}
+
